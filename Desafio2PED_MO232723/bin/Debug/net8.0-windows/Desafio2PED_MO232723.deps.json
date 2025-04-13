@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Desafio2PED_MO232723/1.0.0": {
+        "runtime": {
+          "Desafio2PED_MO232723.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Desafio2PED_MO232723/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
