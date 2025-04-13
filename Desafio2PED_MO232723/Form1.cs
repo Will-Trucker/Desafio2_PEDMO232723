@@ -26,11 +26,11 @@ namespace Desafio2PED_MO232723
 
             if (tablaHash.AgregarProducto(producto))
             {
-                MessageBox.Show("Producto agregado con Èxito.");
+                MessageBox.Show("Producto agregado con √©xito.");
             }
             else
             {
-                MessageBox.Show("El cÛdigo ya existe. No se puede agregar el producto.");
+                MessageBox.Show("El c√≥digo ya existe. No se puede agregar el producto.");
             }
 
             LimpiarCampos();
@@ -38,6 +38,10 @@ namespace Desafio2PED_MO232723
         // Buscar
         private void btnSearch_Click(object sender, EventArgs e)
         {
+              if (!ValidarCamposConsulta())
+            {
+                return;
+            }
             var producto = tablaHash.BuscarProducto(txtCodBuscar.Text);
             if (producto != null)
             {
@@ -66,10 +70,10 @@ namespace Desafio2PED_MO232723
               
                 string codigo = dataGridView1.SelectedRows[0].Cells["Codigo"].Value.ToString();
 
-                // Elimina el producto utilizando el cÛdigo
+                // Elimina el producto utilizando el c√≥digo
                 if (tablaHash.EliminarProducto(codigo))
                 {
-                    MessageBox.Show("Producto eliminado con Èxito.");
+                    MessageBox.Show("Producto eliminado con √©xito.");
                     // Actualiza la lista del DataGridView
                     dataGridView1.DataSource = tablaHash.ListarTodosLosProductos();
                 }
@@ -110,23 +114,23 @@ namespace Desafio2PED_MO232723
         {
             if (string.IsNullOrWhiteSpace(txtCodigo.Text) || string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(cmbCategoria.Text) ||string.IsNullOrWhiteSpace(txtPrecio.Text) ||string.IsNullOrWhiteSpace(txtCantidad.Text))
             {
-                MessageBox.Show("Por favor, llenar todos los campos.", "Campos VacÌos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, llenar todos los campos.", "Campos Vac√≠os", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
             if (!decimal.TryParse(txtPrecio.Text, out decimal precio) || !int.TryParse(txtCantidad.Text, out int cantidad))
             {
-                MessageBox.Show("Por favor, ingresa valores numÈricos v·lidos.", "Error Interno", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, ingresa valores num√©ricos v√°lidos.", "Error Interno", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
             if (precio <= 0 || cantidad < 0)
             {
-                MessageBox.Show("El Precio debe ser mayor a 0 y la Cantidad no puede ser negativa.", "Valores Inv·lidos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("El Precio debe ser mayor a 0 y la Cantidad no puede ser negativa.", "Valores Inv√°lidos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
-            return true; // Todos los campos son v·lidos
+            return true; // Todos los campos son v√°lidos
 
         }
 
@@ -135,7 +139,7 @@ namespace Desafio2PED_MO232723
         {
             if (string.IsNullOrWhiteSpace(txtCodBuscar.Text))
             {
-                MessageBox.Show("Por favor, ingresa un cÛdigo para realizar la b˙squeda.", "Campo VacÌo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, ingresa un c√≥digo para realizar la b√∫squeda.", "Campo Vac√≠o", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             return true;
